@@ -8,43 +8,61 @@
 typedef enum Type
 {
 	EMPTY, PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING
-};
+} Type;
 
 typedef enum Team
 {
 	NONE, WHITE, BLACK
-};
+} Team;
 
 typedef struct Point
 {
   int height, width;
-};
+} Point;
 
 typedef struct Piece
 {
   Type type;
   Team team;
-};
+} Piece;
 
 typedef struct Move
 {
   Point start;
   Point stop;
-};
+} Move;
 
 typedef struct Castle
 {
-  bool kingCastle;
-  bool queenCastle;
-};
+  bool king;
+  bool queen;
+} Castle;
 
-typedef struct Board
+typedef struct Castles
 {
-  Piece[BOARD_HEIGHT][BOARD_WIDTH] board;
-  Team currentTeam;
-  Castle whiteCastle, blackCastle;
+	Castle white;
+	Castle black;
+} Castles;
+
+typedef Piece Board[BOARD_HEIGHT][BOARD_WIDTH];
+typedef Move Moves[256];
+
+typedef struct CBoard
+{
+  Board board;
+  Team current;
+  Castles castles;
+	Point passant;
+	int counter;
   int turns;
-  Move[256] moveStack;
-};
+  Moves moves;
+} CBoard;
+
+extern const char whitePieces[];
+extern const char blackPieces[];
+
+extern const char boardLetters[];
+extern const char boardNumbers[];
+
 
 #endif

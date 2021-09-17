@@ -53,8 +53,6 @@ EXE_LINKERS := $(SDL_FLAGS) -lm
 
 .PRECIOUS: $(OBJECT_PROGRAMS) $(GAME_OBJECT_PROGRAMS)
 
-default-target: test-game-program
-
 # This is the target for compiling the executable files
 %: $(GAME_SOURCE_FOLDER)/%.c $(GAME_HEADER_FOLDER)/%.h \
 	$(OBJECT_FOLDER)/%.o $(OBJECT_PROGRAMS) \
