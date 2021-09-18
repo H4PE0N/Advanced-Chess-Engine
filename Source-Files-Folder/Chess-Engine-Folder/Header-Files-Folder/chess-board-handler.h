@@ -14,7 +14,7 @@ Team board_point_team(Board, Point);
 
 bool board_piece_points(Points*, Board, Piece);
 
-bool board_piece_point(Point*, Board, Piece);
+Point board_piece_point(Board, Piece);
 
 void update_castle_value(Castle*, Side, bool);
 

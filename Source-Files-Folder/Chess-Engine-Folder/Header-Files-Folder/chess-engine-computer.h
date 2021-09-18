@@ -1,0 +1,7 @@
+
+#ifndef CHESS_ENGINE_COMPUTER_H
+#define CHESS_ENGINE_COMPUTER_H
+
+
+
+#endif

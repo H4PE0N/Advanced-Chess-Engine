@@ -74,6 +74,8 @@ bool pawn_move_acceptable(CBoard board, Move move)
 
 	if(!move_prevent_check(board, move)) return false;
 
+	printf("Pawn move acceptable!\n");
+
 	return true;
 }
 
@@ -229,8 +231,9 @@ bool team_castle_acceptable(CBoard board, Move move)
 
   Team team = board_point_team(board.board, start);
 
-	Point king = {-1, -1};
-  if(!board_piece_point(&king, board.board, (Piece) {KING, team})) return false;
+	Point king = board_piece_point(board.board, (Piece) {KING, team});
+
+	if(!point_inside_board(king)) return false;
 
 	// This is a special case, you cant switch if the king is in check
 	if(king_inside_check(board.board, king)) return false;
@@ -253,8 +256,9 @@ bool check_after_castling(CBoard board, Move move)
 
 	execute_team_castle(&boardCopy, move);
 
-	Point king = {-1, -1};
-  if(!board_piece_point(&king, boardCopy.board, (Piece) {KING, team})) return false;
+	Point king = board_piece_point(board.board, (Piece) {KING, team});
+
+	if(!point_inside_board(king)) return false;
 
 	if(king_inside_check(boardCopy.board, king)) return false;
 

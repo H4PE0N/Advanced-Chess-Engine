@@ -39,15 +39,16 @@ Team board_point_team(Board board, Point point)
   return board_point_piece(board, point).team;
 }
 
-bool board_piece_point(Point* point, Board board, Piece piece)
+Point board_piece_point(Board board, Piece piece)
 {
   Points points;
 
-  if(!board_piece_points(&points, board, piece)) return false;
+  if(!board_piece_points(&points, board, piece))
+  {
+    return (Point) {-1, -1};
+  }
 
-  *point = points[0];
-
-  return true;
+  return points[0];
 }
 
 bool board_piece_points(Points* points, Board board, Piece piece)

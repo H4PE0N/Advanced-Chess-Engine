@@ -369,8 +369,9 @@ bool move_prevent_check(CBoard board, Move move)
 
 	execute_piece_move(&boardCopy, move);
 
-	Point king = {-1, -1};
-  if(!board_piece_point(&king, boardCopy.board, (Piece) {KING, team})) return false;
+	Point king = board_piece_point(boardCopy.board, (Piece) {KING, team});
+
+	if(!point_inside_board(king)) return false;
 
 	if(king_inside_check(boardCopy.board, king)) return false;
 

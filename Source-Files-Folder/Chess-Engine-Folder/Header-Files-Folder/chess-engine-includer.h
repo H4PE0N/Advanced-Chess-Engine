@@ -31,4 +31,10 @@
 
 #include "piece-move-handler.h"
 
+#include "board-value-generator.h"
+
+#include "chess-game-functions.h"
+
+#include "chess-pieces-moveable.h"
+
 #endif

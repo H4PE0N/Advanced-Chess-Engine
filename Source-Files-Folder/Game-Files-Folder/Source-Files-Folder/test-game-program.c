@@ -15,5 +15,14 @@ int main(int argAmount, char* arguments[])
 
   display_chess_board(board.board);
 
+  Move move = {(Point) {6, 1}, (Point) {4, 1}};
+
+  if(!move_chess_piece(&board, move))
+  {
+    printf("The move could not be done!\n");
+  }
+
+  display_chess_board(board.board);
+
   return false;
 }
