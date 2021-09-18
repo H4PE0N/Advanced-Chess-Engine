@@ -7,4 +7,12 @@
 #include <stdbool.h>
 #include <string.h>
 
+// This is the SDL includes
+// #include <SDL2/SDL.h>
+// #include <SDL2/SDL_image.h>
+
+#include "../../Chess-Engine-Folder/Header-Files-Folder/chess-engine-includer.h"
+
+#include "display-chess-board.h"
+
 #endif

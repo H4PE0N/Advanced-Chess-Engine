@@ -4,10 +4,8 @@
 int main(int argAmount, char* arguments[])
 {
   CBoard board;
-  Piece piece;
-  Point point;
 
-  char fenString[256] = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1";
+  char fenString[256] = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
   if(!create_fen_board(&board, fenString))
   {
@@ -15,19 +13,7 @@ int main(int argAmount, char* arguments[])
     return true;
   }
 
-  for(int height = 0; height < BOARD_HEIGHT; height += 1)
-  {
-    for(int width = 0; width < BOARD_WIDTH; width += 1)
-    {
-      point = (Point) {height, width};
-      piece = board_point_piece(board.board, point);
-
-      printf("%d%d", piece.type, piece.team);
-    }
-    printf("\n");
-  }
-
-  
+  display_chess_board(board.board);
 
   return false;
 }
