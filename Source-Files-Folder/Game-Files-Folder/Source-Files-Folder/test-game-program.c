@@ -7,7 +7,7 @@ int main(int argAmount, char* arguments[])
   Piece piece;
   Point point;
 
-  char fenString[256] = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+  char fenString[256] = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1";
 
   if(!create_fen_board(&board, fenString))
   {
@@ -27,12 +27,7 @@ int main(int argAmount, char* arguments[])
     printf("\n");
   }
 
-  char string[256];
-
-  if(!generate_board_fen(string, board))
-  {
-    return true;
-  }
+  
 
   return false;
 }

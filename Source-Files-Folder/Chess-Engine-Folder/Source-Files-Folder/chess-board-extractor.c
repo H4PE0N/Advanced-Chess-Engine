@@ -72,6 +72,12 @@ bool extract_fen_castles(Castles* castles, char fenString[])
   Castles extractCastles;
   int stringLength = strlen(fenString);
 
+  if(stringLength == 1 && fenString[0] == '-')
+  {
+    *castles = extractCastles;
+    return true;
+  }
+
   for(int index = 0; index < stringLength; index += 1)
   {
     if(!extract_letter_castle(&extractCastles, fenString[index]))
@@ -81,7 +87,6 @@ bool extract_fen_castles(Castles* castles, char fenString[])
     }
   }
   *castles = extractCastles;
-
   return true;
 }
 
