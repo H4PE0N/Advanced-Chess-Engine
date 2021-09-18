@@ -17,25 +17,12 @@ int extract_string_length(char string[])
   return length;
 }
 
-bool number_inside_bounds(int number, int minimum, int maximum)
-{
-  return ( (number >= minimum) && (number <= maximum) );
-}
-
 void copy_string_variable(char* string, char copying[], int length)
 {
   for(int index = 0; index < length; index += 1)
   {
     string[index] = copying[index];
   }
-}
-
-bool point_inside_board(Point point)
-{
-  bool heightValid = number_inside_bounds(point.height, 0, BOARD_HEIGHT - 1);
-  bool widthValid = number_inside_bounds(point.width, 0, BOARD_WIDTH - 1);
-
-  return (heightValid && widthValid);
 }
 
 void clear_string_variable(char* string, int length)

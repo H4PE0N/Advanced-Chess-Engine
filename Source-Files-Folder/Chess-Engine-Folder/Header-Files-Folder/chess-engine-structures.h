@@ -5,6 +5,9 @@
 #define BOARD_HEIGHT 8
 #define BOARD_WIDTH 8
 
+#define MIN_VAL -100000
+#define MAX_VAL +100000
+
 typedef enum Type
 {
 	EMPTY, PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING
@@ -14,6 +17,11 @@ typedef enum Team
 {
 	NONE, WHITE, BLACK
 } Team;
+
+typedef enum Side
+{
+	STILL, LEFT, RIGHT
+} Side;
 
 typedef struct Point
 {
@@ -45,7 +53,10 @@ typedef struct Castles
 } Castles;
 
 typedef Piece Board[BOARD_HEIGHT][BOARD_WIDTH];
+
 typedef Move Moves[256];
+
+typedef Point Points[64];
 
 typedef struct CBoard
 {
