@@ -41,17 +41,20 @@ Team board_point_team(Board board, Point point)
 
 Point board_piece_point(Board board, Piece piece)
 {
-  Points points;
+  Point point = {-1, -1};
+  Point* points = create_points_array(64);
 
-  if(!board_piece_points(&points, board, piece))
+  if(board_piece_points(points, board, piece))
   {
-    return (Point) {-1, -1};
+    point = points[0];
   }
 
-  return points[0];
+  free(points);
+
+  return point;
 }
 
-bool board_piece_points(Points* points, Board board, Piece piece)
+bool board_piece_points(Point* points, Board board, Piece piece)
 {
 	Piece currentPiece;
   Point currentPoint;
@@ -67,7 +70,7 @@ bool board_piece_points(Points* points, Board board, Piece piece)
 
 			if(!board_pieces_equal(piece, currentPiece)) continue;
 
-			(*points)[index] = currentPoint;
+			points[index] = currentPoint;
 			index += 1;
 		}
 	}

@@ -32,3 +32,81 @@ void clear_string_variable(char* string, int length)
     string[index] = '\0';
   }
 }
+
+Point* create_points_array(int amount)
+{
+  Point* points = malloc(sizeof(Point) * (amount + 1) );
+
+  for(int index = 0; index < (amount + 1); index += 1)
+  {
+    points[index] = (Point) {-1, -1};
+  }
+
+  return points;
+}
+
+void append_moves_array(Move* moves, Move adding[])
+{
+  int amount = moves_array_amount(moves);
+	int addAmount = moves_array_amount(adding);
+
+	for(int index = 0; index < addAmount; index += 1)
+	{
+		moves[amount + index] = adding[index];
+	}
+}
+
+int moves_array_amount(Move moves[])
+{
+	int amount = 0;
+	while(move_inside_board(moves[amount]))
+	{
+		amount += 1;
+	}
+	return amount;
+}
+
+void clear_moves_array(Move* moves, int amount)
+{
+	for(int index = 0; index < amount; index += 1)
+	{
+		moves[index] = (Move) {(Point) {-1, -1}, (Point) {-1, -1}};
+	}
+}
+
+Move* create_moves_array(int amount)
+{
+	Move* moves = malloc(sizeof(Move) * (amount + 1));
+
+	for(int index = 0; index < (amount + 1); index += 1)
+	{
+		moves[index] = (Move) {(Point) {-1, -1}, (Point) {-1, -1}};
+	}
+	return moves;
+}
+
+Board create_board_variable()
+{
+  Board board = malloc(sizeof(Point*) * (BOARD_HEIGHT + 1) );
+
+  for(int height = 0; height < (BOARD_HEIGHT + 1); height += 1)
+  {
+    board[height] = malloc(sizeof(Point) * (BOARD_WIDTH + 1) );
+
+    for(int width = 0; width < (BOARD_WIDTH + 1); width += 1)
+    {
+      board[height][width] = (Piece) {EMPTY, NONE};
+    }
+  }
+  return board;
+}
+
+void free_board_variable(Board board)
+{
+  for(int index = 0; index < BOARD_HEIGHT; index += 1)
+  {
+    free(board[index]);
+  }
+
+  free(board);
+}

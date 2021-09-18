@@ -52,11 +52,7 @@ typedef struct Castles
 	Castle black;
 } Castles;
 
-typedef Piece Board[BOARD_HEIGHT][BOARD_WIDTH];
-
-typedef Move Moves[256];
-
-typedef Point Points[64];
+typedef Piece** Board;
 
 typedef struct CBoard
 {
@@ -66,7 +62,7 @@ typedef struct CBoard
 	Point passant;
 	int counter;
   int turns;
-  Moves moves;
+  //Move* moves;
 } CBoard;
 
 extern const char whitePieces[];

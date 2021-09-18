@@ -37,4 +37,8 @@
 
 #include "chess-pieces-moveable.h"
 
+#include "piece-possible-moves.h"
+
+#include "chess-engine-computer.h"
+
 #endif

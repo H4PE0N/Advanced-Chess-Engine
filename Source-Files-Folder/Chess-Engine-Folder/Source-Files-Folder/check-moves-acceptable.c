@@ -70,11 +70,9 @@ bool pawn_move_acceptable(CBoard board, Move move)
 	{
 		if(!board_point_empty(board.board, stop)) return false;
 	}
-	else if(!board_points_enemies(board.board, start, stop)) return false;
-
+	else if(points_not_enemies(board.board, start, stop)) return false;
+	
 	if(!move_prevent_check(board, move)) return false;
-
-	printf("Pawn move acceptable!\n");
 
 	return true;
 }

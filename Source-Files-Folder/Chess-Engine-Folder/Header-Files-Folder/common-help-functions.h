@@ -10,4 +10,18 @@ void copy_string_variable(char*, char[], int);
 
 void clear_string_variable(char*, int);
 
+Point* create_points_array(int);
+
+void append_moves_array(Move*, Move[]);
+
+int moves_array_amount(Move[]);
+
+void clear_moves_array(Move*, int);
+
+Move* create_moves_array(int);
+
+Board create_board_variable();
+
+void free_board_variable(Board);
+
 #endif

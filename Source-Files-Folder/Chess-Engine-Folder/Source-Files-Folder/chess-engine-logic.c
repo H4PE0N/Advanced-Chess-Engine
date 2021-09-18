@@ -30,6 +30,17 @@ bool board_points_equal(Point first, Point second)
   return (heightEqual && widthEqual);
 }
 
+bool points_not_enemies(Board board, Point first, Point second)
+{
+  Team firstTeam = board_point_team(board, first);
+  Team secondTeam = board_point_team(board, second);
+
+  bool firstExists = piece_team_exists(firstTeam);
+  bool secondExists = piece_team_exists(secondTeam);
+
+  return (!firstExists || !secondExists || firstTeam == secondTeam);
+}
+
 bool board_pieces_equal(Piece first, Piece second)
 {
   bool typeEqual = (first.type == second.type);

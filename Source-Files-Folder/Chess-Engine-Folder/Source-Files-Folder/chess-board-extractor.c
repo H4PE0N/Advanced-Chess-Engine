@@ -124,6 +124,8 @@ bool create_fen_board(CBoard* board, char fenString[])
 {
   CBoard extractBoard;
 
+  extractBoard.board = create_board_variable();
+
   char tokenString[256];
 
   copy_string_variable(tokenString, fenString, 200);

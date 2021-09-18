@@ -30,4 +30,6 @@ bool points_inside_board(Point, Point);
 
 bool board_pieces_equal(Piece, Piece);
 
+bool points_not_enemies(Board, Point, Point);
+
 #endif
